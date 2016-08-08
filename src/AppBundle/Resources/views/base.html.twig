@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="/css/insforo.css">
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}
+            {% block topBar %}{% endblock %}
+            {% block replyBox %}{% endblock %}
+            {% block postList %}{% endblock %}
+        {% endblock %}
+      {% block javascripts %}{% endblock %}
+    </body>
+</html>

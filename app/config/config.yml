@@ -64,3 +64,15 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        post_image:
+            namer: vich_uploader.namer_uniqid
+            uri_prefix: /postImages
+            upload_destination: %kernel.root_dir%/../web/postImages
+
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
