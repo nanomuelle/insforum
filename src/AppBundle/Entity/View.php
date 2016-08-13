@@ -33,7 +33,10 @@ class View
         return $this->id;
     }
 
-
+    public function incrementCount() {
+        $this->count++;
+    }
+    
     /**
      * Set count
      *
@@ -50,7 +53,7 @@ class View
     /**
      * Get count
      *
-     * @return integer 
+     * @return integer
      */
     public function getCount()
     {

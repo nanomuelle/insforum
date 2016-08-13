@@ -16,18 +16,21 @@ class DefaultController extends Controller
     * @Route("/ajax/topBar", name="ajax_topBar")
     */
     public function topBarAction(Request $request) {
-        $postRepo = $this->getDoctrine()->getRepository(Post::class);
-        $posts = $postRepo->findAllRecentFirst();
-        $numPosts = $postRepo->getCount();
+        $numPosts = $this->getDoctrine()->getRepository(Post::class)->getCount();
 
         $view = $this->getDoctrine()->getRepository(View::class)->find(1);
         $numViews = $view->getCount();
 
-        // replace this example code with whatever you need
         return $this->render('AppBundle:default:topBar.html.twig', array(
             'numPosts' => $numPosts,
             'numViews' => $numViews,
         ));
+    }
+
+    private function incrementViews() {
+        $view = $this->getDoctrine()->getRepository(View::class)->find(1);
+        $view->incrementCount();
+        $this->getDoctrine()->getManager()->persist($view);
     }
 
     /**
@@ -36,7 +39,6 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $view = $this->getDoctrine()->getRepository(View::class)->find(1);
 
         $post = new Post();
         $form = $this->createForm(PostType::class, $post);
@@ -47,21 +49,14 @@ class DefaultController extends Controller
             $post->setImageOriginalName($post->getImageFile()->getClientOriginalName());
             $em->persist($post);
         } else {
-            $view->setCount($view->getCount() + 1);
-            $em->persist($view);
+            $this->incrementViews();
         }
         $em->flush();
 
         $postRepo = $this->getDoctrine()->getRepository(Post::class);
         $posts = $postRepo->findAllRecentFirst();
-        $numPosts = $postRepo->getCount();
 
-        $numViews = $view->getCount();
-
-        // replace this example code with whatever you need
         return $this->render('AppBundle:default:index.html.twig', array(
-            'numPosts' => $numPosts,
-            'numViews' => $numViews,
             'form' => $form->createView(),
             'posts' => $posts,
         ));
