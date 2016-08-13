@@ -1,4 +1,13 @@
 <div id='replyBox'>
-    Write an optional title, select a image and press send.
-    {{ form(form) }}
+    <p>Write an optional title, select a image and press send.</p>
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_row(form.title) }}
+    {{ form_row(form.imageFile) }}
+
+    <div>
+        <button name="send" id="post_send" type="submit">Send</button>
+    </div>
+
+    {{ form_end(form) }}
 </div>
