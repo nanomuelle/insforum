@@ -16,7 +16,7 @@ class PostType extends AbstractType
         $builder
             ->add('title')
             ->add('imageFile', FileType::class)
-            ->add('send', SubmitType::class)
+            // ->add('send', SubmitType::class)
         ;
     }
     public function configureOptions(OptionsResolver $resolver)
