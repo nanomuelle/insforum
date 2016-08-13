@@ -18,3 +18,6 @@ Simplified forum web app.
    - [ ] **Bonus points**: Make it possible to export the Excel format as  well.
    - [ ] **Bonus points**: clicking the Export button produces a ZIP file with all images and the  CSV file mentioned above.
  - [x] **Bonus points**: The #posts and #views should update every 15 seconds without reloading  the page.
+
+ - [ ] **Bonus points**: Scaling the app 
+ - [ ] **Bonus points**: The API 
