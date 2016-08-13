@@ -13,12 +13,29 @@ use AppBundle\Form\PostType;
 class DefaultController extends Controller
 {
     /**
+    * @Route("/ajax/topBar", name="ajax_topBar")
+    */
+    public function topBarAction(Request $request) {
+        $postRepo = $this->getDoctrine()->getRepository(Post::class);
+        $posts = $postRepo->findAllRecentFirst();
+        $numPosts = $postRepo->getCount();
+
+        $view = $this->getDoctrine()->getRepository(View::class)->find(1);
+        $numViews = $view->getCount();
+
+        // replace this example code with whatever you need
+        return $this->render('AppBundle:default:topBar.html.twig', array(
+            'numPosts' => $numPosts,
+            'numViews' => $numViews,
+        ));
+    }
+
+    /**
      * @Route("/", name="homepage")
      */
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-
         $view = $this->getDoctrine()->getRepository(View::class)->find(1);
 
         $post = new Post();
@@ -35,9 +52,10 @@ class DefaultController extends Controller
         }
         $em->flush();
 
-        $posts = $this->getDoctrine()->getRepository(Post::class)
-            ->findAllRecentFirst();
-        $numPosts = count($posts);
+        $postRepo = $this->getDoctrine()->getRepository(Post::class);
+        $posts = $postRepo->findAllRecentFirst();
+        $numPosts = $postRepo->getCount();
+
         $numViews = $view->getCount();
 
         // replace this example code with whatever you need

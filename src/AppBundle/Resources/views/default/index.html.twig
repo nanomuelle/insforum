@@ -1,5 +1,19 @@
 {% extends 'AppBundle::base.html.twig' %}
 
-{% block topBar %}{% include 'AppBundle:default:topBar.html.twig' %}{% endblock %}
+{% block topBar %}<div id='topBar'>{% render(controller('AppBundle:default:topBar')) %}</div>{% endblock %}
 {% block replyBox %}{% include 'AppBundle:default:replyBox.html.twig' %}{% endblock %}
 {% block postList %}{% include 'AppBundle:default:postList.html.twig' %}{% endblock %}
+{% block javascripts %}
+<script>
+    $(document).ready(function () {
+        window.setInterval(function () {
+            $.ajax({
+                url: "{{ path('ajax_topBar') }}"
+            })
+            .done(function (data) {
+                document.getElementById('topBar').innerHTML = data;
+            });
+        }, 15 * 1000);
+    });
+</script>
+{% endblock %}

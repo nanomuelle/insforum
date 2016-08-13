@@ -12,4 +12,12 @@ class PostRepository extends EntityRepository {
             )
             ->getResult();
     }
+
+    public function getCount() {
+        $qb = $this->getEntityManager()->createQueryBuilder();
+        $qb ->select($qb->expr()->count('p.id'))
+            ->from('AppBundle:Post', 'p');
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
 }

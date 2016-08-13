@@ -13,6 +13,7 @@
             {% block replyBox %}{% endblock %}
             {% block postList %}{% endblock %}
         {% endblock %}
-      {% block javascripts %}{% endblock %}
+        <script src="{{ asset('vendor/jquery/jquery-3.1.0.min.js') }}"></script>
+        {% block javascripts %}{% endblock %}
     </body>
 </html>
