@@ -10,7 +10,9 @@ Simplified forum web app.
  - [x] Support the JPEG image format only.
    - [x] **Bonus points**: Support PNG and (animated) GIF as  well.
  - [x] Image size: upto 1920x1080, upto 2 MB.
-   - [ ] **Bonus points**: image size upto 20 MB.  
+   - [ ] **Bonus points**: image size upto 20 MB.
+   > **Idea** Create miniatures for the submitted images to be able to serve the same amount of files. Then add a feature: clicking on a image, shows the full version of it.
+    
  - [x] #posts increments with each new post.
  - [x] #views increments with each view. 
  - [x] Performance: The post must be visible within 2 seconds, and all the images must be complete loading within 5 seconds on a 10 Mbps Internet connection. 
@@ -20,4 +22,5 @@ Simplified forum web app.
  - [x] **Bonus points**: The #posts and #views should update every 15 seconds without reloading  the page.
 
  - [ ] **Bonus points**: Scaling the app 
- - [ ] **Bonus points**: The API 
+ - [x] **Bonus points**: The API 
+    Basic implementation with [Voryx REST Generator Bundle]( https://github.com/voryx/restgeneratorbundle)
