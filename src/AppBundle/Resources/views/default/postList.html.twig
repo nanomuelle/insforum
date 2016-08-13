@@ -1,5 +1,7 @@
-<div id='postList'>
+{% if posts %}
     {% for post in posts %}
-    {% include 'AppBundle:default:post.html.twig' %}
+        {% include 'AppBundle:default:post.html.twig' %}
     {% endfor %}
-</div>
+    {% set lastPost = posts|last %}
+    <div id="morePosts" class='more' onclick='getMorePosts({{ lastPost.id -1 }});'>--- more ---</div>
+{% endif %}

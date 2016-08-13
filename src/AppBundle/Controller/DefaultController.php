@@ -34,6 +34,18 @@ class DefaultController extends Controller
     }
 
     /**
+    * @Route("/ajax/postList/{fromPostId}", name="ajax_postList", defaults={"fromPostId" = null})
+    **/
+    public function postListAction(Request $request, $fromPostId = null) {
+        $postRepo = $this->getDoctrine()->getRepository(Post::class);
+        $posts = $postRepo->findNextNPosts($fromPostId);
+
+        return $this->render('AppBundle:default:postList.html.twig', array(
+            'posts' => $posts,
+        ));
+    }
+
+    /**
      * @Route("/", name="homepage")
      */
     public function indexAction(Request $request)
@@ -53,12 +65,8 @@ class DefaultController extends Controller
         }
         $em->flush();
 
-        $postRepo = $this->getDoctrine()->getRepository(Post::class);
-        $posts = $postRepo->findAllRecentFirst();
-
         return $this->render('AppBundle:default:index.html.twig', array(
             'form' => $form->createView(),
-            'posts' => $posts,
         ));
 
         // , array(
