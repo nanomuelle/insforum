@@ -9,7 +9,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
-* @ORM\Entity
+* @ORM\Entity(repositoryClass="AppBundle\Entity\PostRepository")
 * @ORM\Table(name="post")
 * @Vich\Uploadable
 */
@@ -23,7 +23,7 @@ class Post
   private $id;
 
   /**
-  * @ORM\Column(type="string", length=255)
+  * @ORM\Column(type="string", length=255, nullable=true)
   * @var string;
   */
   private $title;
@@ -47,7 +47,7 @@ class Post
   *     maxWidth = 1920,
   *     maxHeight = 1080,
   *     maxSize = "2048k",
-  *     mimeTypes = {"image/jpeg", "image/jpg"}
+  *     mimeTypes = {"image/jpeg", "image/jpg", "image/png", "image/gif"}
   * )
   *
   * @var File

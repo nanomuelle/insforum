@@ -1,0 +1,4 @@
+"title","image name"
+{% for post in posts %}
+"{{ post.title|default('untitled')}}", "{{ post.imageOriginalName}}"
+{% endfor %}

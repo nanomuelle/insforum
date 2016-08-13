@@ -25,7 +25,7 @@ class DefaultController extends Controller
         $form = $this->createForm(PostType::class, $post);
 
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid() && $form->getData()->getImageFile() !== null) {
             $post = $form->getData();
             $post->setImageOriginalName($post->getImageFile()->getClientOriginalName());
             $em->persist($post);
@@ -36,7 +36,7 @@ class DefaultController extends Controller
         $em->flush();
 
         $posts = $this->getDoctrine()->getRepository(Post::class)
-            ->findAll();
+            ->findAllRecentFirst();
         $numPosts = count($posts);
         $numViews = $view->getCount();
 
