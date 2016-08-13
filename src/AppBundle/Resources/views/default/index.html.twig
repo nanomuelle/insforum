@@ -1,6 +1,6 @@
 {% extends 'AppBundle::base.html.twig' %}
 
-{% block topBar %}<div id='topBar'>{% render(controller('AppBundle:default:topBar')) %}</div>{% endblock %}
+{% block topBar %}<div id='topBar'>{{ render(controller('AppBundle:default:topBar')) }}</div>{% endblock %}
 {% block replyBox %}{% include 'AppBundle:default:replyBox.html.twig' %}{% endblock %}
 {% block postList %}{% include 'AppBundle:default:postList.html.twig' %}{% endblock %}
 {% block javascripts %}
