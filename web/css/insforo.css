@@ -9,23 +9,28 @@ body {
     border: 1px solid black;
     align-content: center;
 }
+
 #topBar {
     display: inline-block;
     width: 95%;
     padding: 10px;
     background-color: #bbb;
 }
+
 .toolBarItem {
     display: inline-block;
     margin: 1%;
     width: 30%;
 }
+
 #exportPosts {
     text-align: center;
 }
+
 #numViews {
     text-align: right;
 }
+
 #replyBox {
     width: 95%;
     padding: 10px;
@@ -37,4 +42,12 @@ body {
     padding: 10px;
     background-color: #ddd;
     align: center;
+}
+#postList .post {
+    text-align: center;
+}
+#postList .more {
+    background-color: white;
+    text-align: center;
+    height: 40px;
 }
