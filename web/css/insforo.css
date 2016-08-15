@@ -1,0 +1,53 @@
+window {
+    background-color: black;
+}
+body {
+    margin: 20px;
+    padding: 20px;
+    background-color: #eee;
+    width: 90%;
+    border: 1px solid black;
+    align-content: center;
+}
+
+#topBar {
+    display: inline-block;
+    width: 95%;
+    padding: 10px;
+    background-color: #bbb;
+}
+
+.toolBarItem {
+    display: inline-block;
+    margin: 1%;
+    width: 30%;
+}
+
+#exportPosts {
+    text-align: center;
+}
+
+#numViews {
+    text-align: right;
+}
+
+#replyBox {
+    width: 95%;
+    padding: 10px;
+    background-color: #ccc;
+}
+
+#postList {
+    width: 95%;
+    padding: 10px;
+    background-color: #ddd;
+    align: center;
+}
+#postList .post {
+    text-align: center;
+}
+#postList .more {
+    background-color: white;
+    text-align: center;
+    height: 40px;
+}

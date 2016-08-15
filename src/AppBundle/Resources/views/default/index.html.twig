@@ -1,0 +1,40 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block topBar %}<div id='topBar'>{{ render(controller('AppBundle:default:topBar')) }}</div>{% endblock %}
+{% block replyBox %}{% include 'AppBundle:default:replyBox.html.twig' %}{% endblock %}
+{% block postList %}
+    <div id='postList'>
+        {{ render(controller('AppBundle:default:postList')) }}
+    </div>
+{% endblock %}
+{% block javascripts %}
+<script>
+$(document).ready(function () {
+        // public function to get more posts
+        window.getMorePosts = function (fromPostId) {
+            $.ajax({
+                url: "{{ path('ajax_postList') }}/" + fromPostId
+            })
+            .done(function (data) {
+                var morePostsElement = document.getElementById('morePosts'),
+                    postListElement = document.getElementById('postList');
+
+                morePostsElement.parentNode.removeChild(morePostsElement);
+                $(postListElement).append(data);
+            });
+        };
+
+        // refresh number of posts and views every 15 secconds
+        // TODO: create a parameter that interval of time.
+        window.setInterval(function () {
+            $.ajax({
+                url: "{{ path('ajax_topBar') }}"
+            })
+            .done(function (data) {
+                document.getElementById('topBar').innerHTML = data;
+            });
+        }, 15 * 1000);
+    });
+</script>
+
+{% endblock %}
