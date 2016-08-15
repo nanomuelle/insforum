@@ -7,6 +7,7 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
 use AppBundle\Entity\Post;
 
 class PostRepository extends EntityRepository {
+    // TODO: Create a parameter for this value
     const MAX_POST_BY_DEFAULT = 2;
 
     private function getFindQueryBuilder() {

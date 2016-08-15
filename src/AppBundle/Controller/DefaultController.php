@@ -68,8 +68,5 @@ class DefaultController extends Controller
         return $this->render('AppBundle:default:index.html.twig', array(
             'form' => $form->createView(),
         ));
-
-        // , array(
-        //     'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
     }
 }

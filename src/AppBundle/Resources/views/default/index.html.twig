@@ -25,6 +25,7 @@ $(document).ready(function () {
         };
 
         // refresh number of posts and views every 15 secconds
+        // TODO: create a parameter that interval of time.
         window.setInterval(function () {
             $.ajax({
                 url: "{{ path('ajax_topBar') }}"
