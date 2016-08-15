@@ -9,6 +9,8 @@ I have decided to develop the project in Symfony2. Main reasons:
    - [VichUploaderBundle](https://github.com/dustin10/VichUploaderBundle) A simple Symfony2 bundle t and o ease file uploads with ORM entities and ODM documents.
    - [Voryx REST Generator Bundle](https://github.com/voryx/restgeneratorbundle) To solve the API Bonus point. This bundle is based on three well known bundles: [FOSRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle), [JMSSerializerBundle](https://github.com/schmittjoh/JMSSerializerBundle) and [NelmioCorsBundle](https://github.com/nelmio/NelmioCorsBundle)
 
+I use git locally to manage my projects, following the branching model defined in [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/) as a general guide, adapting it for each project as needed, so every commit to the master branch reflects a version of the project.
+
 ## Requirements
  - [x] Wireframe with tree sections: Top bar, Reply box and Image post box.
    * **Design choice** I have create a separate twig template for each section.
