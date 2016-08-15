@@ -43,3 +43,8 @@ I use git locally to manage my projects, following the branching model defined i
     * [POST] /api/posts      -> store a post in the database, optional title, imageFile needs to be send. Internally uses the same form as the application.
     * [DELETE] /api/posts/{id} -> delete de post by its id
     * [GET] /api/views/count -> return #views
+
+## Others
+ - Created a command line command to Clear all posts.
+ - Created a command line command to Reset Views counter.
+ - **TODO**: Improve the frontend of the app, maybe including [Bootstrap](http://getbootstrap.com/), and asking an artist and a css designer for user friendly and visual attactive solution.
